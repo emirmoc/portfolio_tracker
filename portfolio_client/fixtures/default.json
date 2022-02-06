@@ -1,0 +1,34 @@
+[
+    {
+      "model": "portfolio_client.asset",
+      "pk": 1,
+      "fields": {
+        "symbol": "BHTSR",
+        "link_info": "https://www.bhtelecom.ba/obavijesti/"
+      }
+    },
+    {
+        "model": "portfolio_client.asset",
+        "pk": 2,
+        "fields": {
+          "symbol": "BSNLR",
+          "link_info": "http://www.bosnalijek.ba/investitori"
+        }
+      },
+      {
+        "model": "portfolio_client.asset",
+        "pk": 3,
+        "fields": {
+          "symbol": "JPESR",
+          "link_info": "https://www.epbih.ba/stranica/investitori"
+        }
+      },
+      {
+        "model": "portfolio_client.asset",
+        "pk": 4,
+        "fields": {
+          "symbol": "TCMKR",
+          "link_info": "https://www.kakanjcement.ba/bs/dionicari"
+        }
+      }
+  ]

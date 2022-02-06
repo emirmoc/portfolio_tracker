@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-06 11:57+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+
+
+#: templates/portfolio_client/index.html:13
+msgid "StockPortfolioStatus"
+msgstr "Stock portfolio status"
+
+#: templates/portfolio_client/index.html:16
+msgid "Symbol"
+msgstr "Symbol"
+
+#: templates/portfolio_client/index.html:17
+msgid "Name"
+msgstr "Name"
+
+#: templates/portfolio_client/index.html:18
+msgid "StockPrice"
+msgstr "Stock price (BAM)"
+
+#: templates/portfolio_client/index.html:19
+msgid "NumberShares"
+msgstr "Number of shares"
+
+#: templates/portfolio_client/index.html:20
+msgid "StockValue"
+msgstr "Stock value (BAM)"
+
+#: templates/portfolio_client/index.html:21
+msgid "Portfolio"
+msgstr "Portfolio (BAM)"
+
+#: templates/portfolio_client/index.html:22
+msgid "Dividends"
+msgstr "Dividends (BAM)"
+
+#: templates/portfolio_client/index.html:23
+msgid "Fees"
+msgstr "Fees (BAM)"
+
+#: templates/portfolio_client/index.html:24
+msgid "StockValuePaid"
+msgstr "Stock value paid (BAM)"
+
+#: templates/portfolio_client/index.html:25
+msgid "TotalPortfolioValue"
+msgstr "Total = stock value + divid. (BAM)"
+
+#: templates/portfolio_client/index.html:26
+msgid "Profits"
+msgstr "Profits = stock value - paid + divid. - fees (BAM)"
+
+#: templates/portfolio_client/index.html:27
+msgid "Links"
+msgstr "Links"
+
+#: templates/portfolio_client/index.html:66
+msgid "UpcomingDividends"
+msgstr "Upcoming dividends"
+
+#: templates/portfolio_client/index.html:73
+msgid "Total"
+msgstr "Total"
+

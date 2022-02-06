@@ -1,0 +1,95 @@
+{% load static %}
+
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Translations #}
+{% load i18n %}
+
+<p class="h5 p-4">{% translate 'StockPortfolioStatus' %}</p>
+<table class="table table-striped">
+    <tr class="table-primary">
+        <th scope="col">{% translate 'Symbol' %}</th>
+        <th scope="col">{% translate 'Name' %}</th>
+        <th scope="col">{% translate 'StockPrice' %}</th>
+        <th scope="col">{% translate 'NumberShares' %}</th>
+        <th scope="col">{% translate 'StockValue' %}</th>
+        <th scope="col">{% translate 'Portfolio' %}</th>
+        <th scope="col">{% translate 'Dividends' %}</th>
+        <th scope="col">{% translate 'Fees' %}</th>
+        <th scope="col">{% translate 'StockValuePaid' %}</th>
+        <th scope="col">{% translate 'TotalPortfolioValue' %}</th>
+        <th scope="col">{% translate 'Profits' %}</th>
+        <th scope="col">{% translate 'Links' %}</th>
+    </tr>
+    {% for asset in asset_list %}
+        <tr>
+            <td>
+                {{ asset.symbol }}
+            </td>
+            <td>
+                {{ asset.name }}
+            </td>
+            <td>
+                {{ asset.price | floatformat:2 }}
+            </td>
+            <td>
+                {{ asset.share_amount }}
+            </td>
+            <td>
+                {{ asset.total_stock_value | floatformat:2 }}
+            </td>
+            <td>
+                {{ asset.percentage | floatformat:2 }}%
+            </td>
+            <td>
+                {{ asset.total_dividends | floatformat:2 }}
+            </td>
+            <td>
+                {{ asset.total_fees | floatformat:2 }}
+            </td>
+            <td>
+                {{ asset.total_paid_value | floatformat:2 }}
+            </td>
+            <td>
+                {{ asset.total_value | floatformat:2 }}
+            </td>
+            <td class="{% if asset.total_profits > 0 %} {{ "text-success" }} {% elif asset.total_profits < 0 %} {{ "text-danger" }} {% endif %}">
+                {% if asset.total_profits > 0 %}+{% endif %}{{ asset.total_profits | floatformat:2 }}
+            </td>
+            <td>
+                {% if asset.link_info is not None %}
+                    <a href="{{ asset.link_info }}"  target=”_blank” >{% translate 'UpcomingDividends' %}</a>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+
+    <tr>
+        <td><strong>{% translate 'Total' %}</strong></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{ total_stock_value | floatformat:2 }}</td>
+        <td></td>
+        <td>
+            {{ total_dividends | floatformat:2 }}
+        </td>
+        <td>
+            {{ total_fees | floatformat:2 }}
+        </td>
+        <td>{{ total_paid_value | floatformat:2 }}</td>        
+        <td>
+            {{ total_value | floatformat:2 }}
+        </td>
+        <td class="{% if total_profits > 0 %} {{ "text-success " }} {% elif total_profits < 0 %} {{ "text-danger" }} {% endif %}">
+            {% if total_profits > 0 %}+{% endif %}{{ total_profits | floatformat:2 }}
+        </td>
+        <td></td>
+    </tr>
+</table>
+
