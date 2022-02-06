@@ -38,11 +38,11 @@ The portfolio tracker is accessible via:
 http://127.0.0.1:8000  
 No login is required for viewing the portfolio status.
 
-Currently available languages: English (default), Bosnian. To access a language different from default, add its code to query string:  
-http://127.0.0.1:8000?lang=bs  
+Currently available languages: English (default), Bosnian. To access a language different from default on the portfolio page, add its code to query string:  
+?lang=bs  
 
 To filter investments by some category (e.g. "myfilter") add it to the query string:  
-http://127.0.0.1:8000?lang=bs&filter=myfilter  
+?filter=myfilter  
 
 The file settings_local.py contains a list of different API endpoints for checking the ticker price. The checks are executed in sequence, so that if the ticker is found in the first API, the second one is skipped. If no ticker value is found, the portfolio page does not show the asset.
 
