@@ -1,6 +1,14 @@
 # portfolio_tracker
 Django app for tracking stock portfolio using multiple stock exchange API endpoints as source.
 
+Portfolio tracking page:
+
+![Alt text](portfolio_screenshots/portfolio.png?raw=true "Title")  
+
+Administration page (after login):
+
+![Alt text](portfolio_screenshots/admin-panel.png?raw=true "Title")  
+
 **Installation**
 
 The file initial-setup.sh located in the source code root contains the shell script necessary for getting the app up and running on your local Linux installation. You also need a local installation of Python. 
