@@ -50,4 +50,4 @@ Currently available stock exchange APIs:
 http://www.sase.ba  
 https://www.blberza.com  
 
-The file settings_local.py is extensible. You can add any stock exchange API endpoint, provided that the endpoint returns a JSON array, the currencies match, and each field is correct.
+The file settings_local.py is extensible. You can add any stock exchange API endpoint, provided that the endpoint is public, it returns a JSON array, the currencies match, and each field is correct.
