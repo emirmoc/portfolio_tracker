@@ -34,7 +34,7 @@ You can login with the username and password defined during the installation. Yo
 
 Symbols can be added, edited, or deleted, along with custom links used for accessing information on upcoming dividends. The four SASE tickers added by default during installation can also be edited or deleted.
 
-The portfolio tracker is accessible via:  
+The portfolio tracker is accessible locally via:  
 http://127.0.0.1:8000  
 No login is required for viewing the portfolio status.
 
