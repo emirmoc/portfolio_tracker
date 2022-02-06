@@ -27,7 +27,7 @@ source .env/bin/activate
 exec ./manage.py runserver
 ```
 
-The administration panel is accessible via:  
+The administration panel is accessible locally via:  
 http://127.0.0.1:8000/admin/  
 
 You can login with the username and password defined during the installation. You can add new asset symbols to track, add investments along with fees, as well as received dividends via the admin panel. You can also add investment filters.
