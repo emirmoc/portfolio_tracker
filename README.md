@@ -39,7 +39,7 @@ http://127.0.0.1:8000?lang=bs&filter=myfilter
 The file settings_local.py contains a list of different API endpoints for checking the ticker price. The checks are executed in sequence, so that if the ticker is found in the first API, the second one is skipped. If no ticker value is found, the portfolio page does not show the asset.
 
 Currently available stock exchange APIs:
-http://www.sase.ba
-https://www.blberza.com
+http://www.sase.ba  
+https://www.blberza.com  
 
 The file settings_local.py is extensible. You can add any stock exchange API endpoint, provided that the endpoint returns a JSON array, the currencies match, and each field is correct.
