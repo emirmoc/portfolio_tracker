@@ -14,7 +14,7 @@ Administration page (after login):
 The file initial-setup.sh located in the source code root contains the shell script necessary for getting the app up and running on your local Linux installation. You also need a local installation of Python. 
 
 In case you are using Windows or Mac, you may need to install the GNU gettext:  
-https://www.gnu.org/software/gettext/
+https://www.gnu.org/software/gettext/  
 Then paste the lines 3-8 from the file initial-setup.sh into the terminal and execute them.
 
 You will be required to enter username and password for a newly created app admin.
