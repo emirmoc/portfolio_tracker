@@ -44,10 +44,10 @@ def index(request):
         result =  {
             'asset_list': [],
             'total_stock_value': 0.0,
-            'total_paid_value': asset_list.aggregate(Sum('total_paid_value')),
+            'total_paid_value':  0.0,
             'total_change': 0.0,
-            'total_fees': asset_list.aggregate(Sum('total_fees')),
-            'total_dividends': asset_list.aggregate(Sum('total_dividends')),
+            'total_fees': 0.0,
+            'total_dividends': 0.0,
             'total_value': 0.0,
             'total_profits': 0.0
         }
@@ -65,7 +65,10 @@ def index(request):
                         asset.price = convert_to_money(info[api['field_price']])
                         asset.name = info[api['field_name']]
                         asset.total_stock_value = asset.share_amount * asset.price
+                        result['total_paid_value'] += asset.total_paid_value
                         result['total_stock_value'] += asset.total_stock_value
+                        result['total_fees'] += asset.total_fees
+                        result['total_dividends'] += asset.total_dividends
                         break
         
                 # Remaining calculated data may not rely on API

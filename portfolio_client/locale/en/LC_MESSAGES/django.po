@@ -46,7 +46,7 @@ msgstr "Stock value (BAM)"
 
 #: templates/portfolio_client/index.html:21
 msgid "Portfolio"
-msgstr "Portfolio (BAM)"
+msgstr "Portfolio"
 
 #: templates/portfolio_client/index.html:22
 msgid "Dividends"
