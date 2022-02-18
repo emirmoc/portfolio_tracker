@@ -22,16 +22,83 @@ def index(request):
 
     if asset_list:
         # Retrieve and summarize values from asset and related tables
-        total_dividends = asset_list.annotate(total_dividends=Coalesce(Sum(F('dividend__amount'), output_field=FloatField()), 0.0)).filter(pk=OuterRef('pk'))
         
         # Filter or return all
         if len(param_filter_name) > 0:
-            share_amount = asset_list.annotate(share_amount=Coalesce(Sum('assetinvestment__amount', filter=(Q(assetinvestment__filter__name=param_filter_name))), 0)).filter(pk=OuterRef('pk'))
-        else:
-            share_amount = asset_list.annotate(share_amount=Coalesce(Sum('assetinvestment__amount'), 0)).filter(pk=OuterRef('pk'))
+            total_dividends = asset_list.annotate(total_dividends=
+            Coalesce(
+                Sum(
+                    F('dividend__amount'), 
+                    filter=(Q(assetinvestment__filter__name=param_filter_name)),
+                    output_field=FloatField()
+                ), 
+                0.0)
+            ).filter(pk=OuterRef('pk'))
 
-        total_paid_value = asset_list.annotate(total_paid_value=Coalesce(Sum(F('assetinvestment__amount') * F('assetinvestment__paid_price'), output_field=FloatField()), 0.0)).filter(pk=OuterRef('pk'))
-        total_fees = asset_list.annotate(total_fees=Coalesce(Sum(F('assetinvestment__total_fees') * -1.0, output_field=FloatField()), 0.0)).filter(pk=OuterRef('pk'))        
+            share_amount = asset_list.annotate(share_amount=
+            Coalesce(
+                Sum(
+                    F('assetinvestment__amount'), 
+                    filter=(Q(assetinvestment__filter__name=param_filter_name)),
+                    output_field=IntegerField()
+                ),
+                0)
+            ).filter(pk=OuterRef('pk'))
+
+            total_paid_value = asset_list.annotate(total_paid_value=
+            Coalesce(
+                Sum(
+                    F('assetinvestment__amount') * F('assetinvestment__paid_price'), 
+                    filter=(Q(assetinvestment__filter__name=param_filter_name)),
+                    output_field=FloatField()
+                ),
+                0.0)
+            ).filter(pk=OuterRef('pk'))
+
+            total_fees = asset_list.annotate(total_fees=
+            Coalesce(
+                Sum(
+                    F('assetinvestment__total_fees') * -1.0,  
+                    filter=(Q(assetinvestment__filter__name=param_filter_name)),
+                    output_field=FloatField()), 
+                0.0)
+            ).filter(pk=OuterRef('pk'))
+        else:
+            total_dividends = asset_list.annotate(total_dividends=
+            Coalesce(
+                Sum(
+                    F('dividend__amount'), 
+                    output_field=FloatField()
+                ), 
+                0.0)
+            ).filter(pk=OuterRef('pk'))
+
+            share_amount = asset_list.annotate(share_amount=
+            Coalesce(
+                Sum(
+                    F('assetinvestment__amount'),
+                    output_field=IntegerField()
+                ), 
+                0)
+            ).filter(pk=OuterRef('pk'))
+
+            total_paid_value = asset_list.annotate(total_paid_value=
+            Coalesce(
+                Sum(
+                    F('assetinvestment__amount') * F('assetinvestment__paid_price'), 
+                    output_field=FloatField()
+                ),
+                0.0)
+            ).filter(pk=OuterRef('pk'))
+
+            total_fees = asset_list.annotate(total_fees=
+                Coalesce(
+                    Sum(
+                        F('assetinvestment__total_fees') * -1.0, 
+                        output_field=FloatField()
+                    ), 
+                    0.0)
+                ).filter(pk=OuterRef('pk'))            
         
         asset_list = asset_list.annotate(
             total_dividends=Coalesce(Subquery(total_dividends.values('total_dividends')), 0, output_field=FloatField()),
@@ -39,6 +106,7 @@ def index(request):
             total_paid_value=Coalesce(Subquery(total_paid_value.values('total_paid_value')), 0, output_field=FloatField()),
             total_fees=Coalesce(Subquery(total_fees.values('total_fees')), 0, output_field=FloatField()),
         ).filter(share_amount__gt=0)
+
 
         # Grid data
         result =  {
